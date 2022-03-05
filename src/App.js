@@ -1,7 +1,21 @@
+import { useState } from 'react';
+
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Routes from './components/Routes';
+
 const App = () => {
+  const [darkTheme, setDarkTheme] = useState(false);
+
   return (
     <div>
-      <h3 className='text-3xl font-bold underline bg-[#1da1f2]'>Google APp</h3>
+      <h3 className={darkTheme ? 'dark' : ''}>
+        <div className='bg-gray-100 dark:bg-gray-900 dark:text-gray-100 min-h-screen'>
+          <Navbar />
+          <Routes />
+          <Footer />
+        </div>
+      </h3>
     </div>
   );
 };
