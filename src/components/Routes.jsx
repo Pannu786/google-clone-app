@@ -1,10 +1,10 @@
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-
-const Routes = () =>  (
-    <div>
-      <h1>Routes</h1>
-    </div>
-  );
-
-
-export default Routes;
+export const Routes = () => (
+  <div className='p-4'>
+    <Switch>
+      <Route exact path='/'>
+      </Route>
+    </Switch>
+  </div>
+);
