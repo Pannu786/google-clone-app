@@ -13,8 +13,8 @@ export const Routing = () => (
         <Route key={path} path={path} element={<Results />} />
       ))}
 
-      {/* this is long way of doing */}
-
+      {/* this is long way of doing  */}
+   
       {/* <Route path='/news' element={<Results />} />
         <Route path='/images' element={<Results />} />
         <Route path='/videos' element={<Results />} />
