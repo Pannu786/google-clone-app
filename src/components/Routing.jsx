@@ -9,8 +9,8 @@ export const Routing = () => (
       <Route path='/' element={<Navigate to='/search' />} />
 
       {/* this is short way */}
-      {['news', 'images', 'videos', 'search'].map((path) => (
-        <Route key={path} path={path} element={<Results />} />
+      {['news', 'images', 'videos', 'search'].map((path, index) => (
+        <Route key={index} path={path} element={<Results />} />
       ))}
 
       {/* this is long way of doing  */}
