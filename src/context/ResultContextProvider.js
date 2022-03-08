@@ -6,7 +6,7 @@ const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1';
 export const ResultContextProvider = ({ children }) => {
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('no fap girl');
 
   // type is = '/news', '/images', '/videos', '/search'
   const getResults = async (type) => {
@@ -17,7 +17,7 @@ export const ResultContextProvider = ({ children }) => {
         'x-user-agent': 'desktop',
         'x-proxy-location': 'NZ',
         'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-        'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+        'x-rapidapi-key': '17a9cfd4d4msh6afbbc973cf827fp1e074bjsn672254bc7e1d',
       },
     });
 
