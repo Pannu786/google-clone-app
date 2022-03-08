@@ -8,12 +8,12 @@ export const Routing = () => (
     <Routes>
       <Route path='/' element={<Navigate to='/search' />} />
 
-      {/* this is short way */}
+      {/* this is a shorter way */}
       {['news', 'images', 'videos', 'search'].map((path, index) => (
         <Route key={index} path={path} element={<Results />} />
       ))}
 
-      {/* this is long way of doing  */}
+      {/* this is a long way of doing same thing above*/}
    
       {/* <Route path='/news' element={<Results />} />
         <Route path='/images' element={<Results />} />

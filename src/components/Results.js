@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/lazy';
 
 import { useResultContext } from '../context/ResultContextProvider';
 import { Loading } from './Loading';
 
 export const Results = () => {
-  const { getResults, results, isLoading, setSearchTerm, searchTerm } =
-    useResultContext();
+  const { getResults, results, isLoading, searchTerm } = useResultContext();
 
   let location = useLocation();
 
@@ -16,7 +15,7 @@ export const Results = () => {
       if (location.pathname === '/videos') {
         getResults(`/search/q=${searchTerm} videos`);
       } else {
-        getResults(`${location.pathname}/q=${searchTerm}&num=40`);
+        getResults(`${location.pathname}/q=${searchTerm}&num=20`);
       }
     }
   }, [searchTerm, location.pathname]);
@@ -74,27 +73,29 @@ export const Results = () => {
                 <p className='text-lg dark:text-blue-300 text-blue-700'>
                   {title}
                 </p>
-                <div className='flex gap-4'>
-                  <a href={source?.href} target='_blank' rel='noreferrer'>
-                    {source?.href}
-                  </a>
-                </div>
               </a>
+              <div className='flex gap-4'>
+                <a href={source?.href} target='_blank' rel='noreferrer'>
+                  {source?.href}
+                </a>
+              </div>
             </div>
           ))}
         </div>
       );
     case '/videos':
       return (
-        <div className='flex flex-wrap'>
+        <div className='flex flex-wrap '>
           {results.map((video, index) => (
             <div key={index} className='p-2'>
-              <ReactPlayer
-                url={video.additional_links?.[0].href}
-                controls
-                width='355px'
-                height='200px'
-              />
+              {video?.additional_links?.[0]?.href && (
+                <ReactPlayer
+                  url={video.additional_links?.[0].href}
+                  controls
+                  width='355px'
+                  height='200px'
+                />
+              )}
             </div>
           ))}
         </div>
